@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas Herança de JavaScript</title>
+</head>
+<body>
+    <script>
+        //Ultiliza orientacão a objeto não e dificil
+        //No javascript aherança funciona como phototype.
+        //Ultilizamos as class para criar uma hieraquiar ,mas por debaixo dos panos,funciona normalmente.
+        //utilizando phototype
+
+    function carro(modelo,chassi,qtdDePortas){
+         this.modelo = modelo;
+         this.chassi = chassi;
+         this.qtdDePortas = qtdDePortas;
+    }
+
+    carro.prototype.andar = function(){
+         console.log('Vrum,Vrum'); //Mostrar que o carro esta funcionando.
+    }
+
+    function Sonix(modelo,chassi,qtdDePortas){
+         carro.call(this, modelo, chassi, qtdDePortas)
+    }
+
+    Sonix.prototype = Object.create(carro.prototype);
+    Sonix.prototype.construtor = Sonix;
+
+    Sonix.prototype.tetoSolar = function(){
+        console.log('Abrindo Teto Solar.'); //Mostrar que o teto solar esta funcionando.
+    }
+
+    var sonix = new Sonix ('Sonix','897656-0',4);
+    console.log(sonix.modelo,sonix.chassi,sonix.qtdDePortas);
+    sonix.andar();
+    sonix.tetoSolar();
+
+    //modo mais simples,mas que funciona da mesma forma
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
